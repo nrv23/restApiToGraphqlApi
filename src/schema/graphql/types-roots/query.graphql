@@ -1,0 +1,4 @@
+type Query {
+  seasonsList: [Season!]!
+  recesByYear(year: String!): [Race]
+}

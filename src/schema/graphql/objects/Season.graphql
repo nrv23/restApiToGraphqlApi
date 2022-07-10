@@ -1,0 +1,5 @@
+type Season {
+  year: String!
+  url: String!
+  urlMobile: String!
+}

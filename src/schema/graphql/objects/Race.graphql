@@ -1,0 +1,11 @@
+type Race {
+    season: String!
+    round: String!
+    url: String!
+    raceName: String!
+    circuit: Circuit!
+    date: String!
+    time: String
+}
+
+
