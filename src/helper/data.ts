@@ -4,5 +4,6 @@ const source = dataSources;
 
 export default () => ({
     seasons: new source.SeasonsData(),
-    races: new source.RacesData()
+    races: new source.RacesData(),
+    drivers: new source.DriversData()
 })

@@ -20,6 +20,22 @@ const raceQueryResolvers : IResolvers  = {
         } catch (error) {
             console.log({error})
         }
+      },
+      raceSelected: async (_ : void, args: { year: string, round: number }) => {
+
+        try {
+
+            const { MRData: {
+                RaceTable: {
+                    Races
+                }
+            } } = (await data().races.getRaceByYearAndRound(args.year,args.round)) as RacesResponse;
+            
+            return Races[0];
+            
+        } catch (error) {
+            console.log({error})
+        }
       }
     }
 }

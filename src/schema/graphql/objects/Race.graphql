@@ -2,6 +2,7 @@ type Race {
     season: String!
     round: String!
     url: String!
+    urlMobile: String!
     raceName: String!
     circuit: Circuit!
     date: String!

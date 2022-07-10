@@ -4,6 +4,7 @@ import { IResolvers } from '@graphql-tools/utils';
 import { getWikipediaMobileUrl } from '../../lib/utils';
 import { Circuit } from '../../interface/Circuit';
 import { Location } from '../../interface/Location';
+import { Driver } from '../../interface/ResponseDriver';
 
 const tpyeResolvers: IResolvers = {
 
@@ -15,7 +16,8 @@ const tpyeResolvers: IResolvers = {
 
         id:  (parent: Circuit) => parent.circuitId,
         location: (parent: Circuit) => parent.Location,
-        name:(parent: Circuit) => parent.circuitName
+        name:(parent: Circuit) => parent.circuitName,
+        urlMobile: (parent: Circuit) =>  getWikipediaMobileUrl(parent.url)
     }, 
     Race: {
         circuit: (parent: Race) => parent.Circuit,
@@ -26,10 +28,18 @@ const tpyeResolvers: IResolvers = {
             }
 
             return parent.time;
-        }
+        },
+        urlMobile: (parent: Race) =>  getWikipediaMobileUrl(parent.url)
     },
     Location: {
         lng: (parent : Location) => parent.long
+    },
+    Driver: {
+        id: (parent: Driver) => parent.driverId,
+        name: (parent: Driver) => ''.concat(parent.givenName,' ',parent.familyName),
+        urlMobile: (parent: Driver) => getWikipediaMobileUrl(parent.url),
+        code: (parent: Driver) => !parent.code ? '' : parent.code,
+        permanentNumber: (parent: Driver) => !parent.permanentNumber ? '' : parent.permanentNumber
     }
 }
 

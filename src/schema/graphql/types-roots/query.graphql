@@ -1,4 +1,9 @@
 type Query {
   seasonsList: [Season!]!
   recesByYear(year: String!): [Race]
+  raceSelected(year: String!,round: Int!): Race
+  getDrivers(limit: Int!,page: Int): [Driver!]
+  getDriversByYear(year: String!): [Driver!]!
+  getDriversByYearAndRound(year:String!, round:Int!): [Driver!]!
+  getDriverById(id: String!): Driver
 }

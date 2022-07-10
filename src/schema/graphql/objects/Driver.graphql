@@ -1,0 +1,11 @@
+type Driver {
+
+    id: String!
+    url: String!
+    urlMobile: String!
+    name: String! # valor concatenado entre givenName: String! y familyName: String!
+    dateOfBirth: String!
+    nationality:String!
+    code: String
+    permanentNumber: String
+}

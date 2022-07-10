@@ -1,6 +1,7 @@
 type Circuit {
     id: String!
     url: String!
+    urlMobile: String!
     name: String!
     location: Location!
 }
