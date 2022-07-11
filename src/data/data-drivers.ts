@@ -44,4 +44,16 @@ export class DriversData extends F1 {
             cacheOptions: { ttl: 60 }, // cachear la consulra durante 60 minutos
         });
     }
+
+    async getDriverStandings(year: string) {
+
+        //https://ergast.com/api/f1/2008/5/constructorStandings.json
+
+        year = checkYear(year);
+
+        return await await this.get(`/${year}/driverStandings.json`, {
+            cacheOptions: { ttl: 60 }, // cachear la consulra durante 60 minutos
+        });
+
+    }
 }

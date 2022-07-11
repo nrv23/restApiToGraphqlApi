@@ -6,4 +6,7 @@ type Query {
   getDriversByYear(year: String!): [Driver!]!
   getDriversByYearAndRound(year:String!, round:Int!): [Driver!]!
   getDriverById(id: String!): Driver
+  getDriverStandings(year: String!): [DriverStandings!]
+  getCircuits(limit: Int!, page: Int!): [Circuit!]
+  circuitSelected(id: String!): Circuit
 }

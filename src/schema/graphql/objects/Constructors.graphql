@@ -1,0 +1,8 @@
+type Constructor {
+
+    id: String!
+    url: String!
+    urlMobile: String!
+    name: String!
+    nationality: String!
+}

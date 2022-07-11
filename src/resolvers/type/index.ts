@@ -5,6 +5,7 @@ import { getWikipediaMobileUrl } from '../../lib/utils';
 import { Circuit } from '../../interface/Circuit';
 import { Location } from '../../interface/Location';
 import { Driver } from '../../interface/ResponseDriver';
+import { Constructor } from '../../interface/Constructor';
 
 const tpyeResolvers: IResolvers = {
 
@@ -40,6 +41,10 @@ const tpyeResolvers: IResolvers = {
         urlMobile: (parent: Driver) => getWikipediaMobileUrl(parent.url),
         code: (parent: Driver) => !parent.code ? '' : parent.code,
         permanentNumber: (parent: Driver) => !parent.permanentNumber ? '' : parent.permanentNumber
+    },
+    Constructor: {
+        id: (parent: Constructor) => parent.constructorId,
+        urlMobile: (parent: Constructor) =>  getWikipediaMobileUrl(parent.url)
     }
 }
 

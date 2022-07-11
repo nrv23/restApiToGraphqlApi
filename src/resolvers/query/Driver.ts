@@ -1,6 +1,7 @@
 import { DriversResponse } from './../../interface/ResponseDriver';
 import { IResolvers } from '@graphql-tools/utils';
 import data from '../../helper/data';
+import { ResponseStanding } from '../../interface/ResponseStanding';
 
 const queryDriverResolvers: IResolvers = {
     Query: {
@@ -78,6 +79,23 @@ const queryDriverResolvers: IResolvers = {
 
             } catch (error) {
                 console.log({ error });
+            }
+        },
+        getDriverStandings: async (_: void, args: { year: string }) => {
+            try {
+                const {
+                    MRData: {
+                        StandingsTable: {
+                            StandingsLists:[{DriverStandings}]
+                        }
+                    }
+                } = (await data().drivers.getDriverStandings(args.year)) as ResponseStanding;
+                //console.log(response)
+
+                return DriverStandings;
+          
+            } catch (error) {
+                console.log({error});
             }
         }
     }

@@ -1,0 +1,9 @@
+type DriverStandings {
+
+    position: String!
+    positionText: String!
+    points: String!
+    wins: String!
+    Driver: Driver
+    Constructors: [Constructor!]
+}
